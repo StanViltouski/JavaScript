@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Copy to clipboard</title>
+
+    <style>
+        .btn {
+            display: inline-block;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #000000;
+        }
+
+        .btn span {
+            font-size: 16px;
+            line-height: 38px;
+        }
+
+        .link {
+            display: block;
+            width:0;
+            height: 0;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div>
+        <a href="javascript:void(0);" class="btn" onClick="copyToClipboard()">
+            <span>copy link into your browser</span>
+        </a>
+
+        <span id="link_source" class="link">https:test.com</span>
+        <!--<input id="link_source" type="text" value="https:test.com" />-->
+
+        <!--<span class="response">&nbsp;</span>-->
+    </div>
+
+
+
+    <!--- Script --->
+
+    <script>
+        function copyToClipboard(){
+            window.getSelection().selectAllChildren(link_source); // For blocks
+            // link_source.select(); //For input/textarea
+            document.execCommand('copy');
+
+            //document.querySelectorAll('.response')[0].innerHTML = 'Cкопировано';
+        }
+    </script>
+
+</body>
+</html>
