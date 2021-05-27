@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Menu scroll</title>
+
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 1920px;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            position: fixed;
+            padding: 20px;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#1" class="nav-scroll">section 1</a>
+        <a href="#2" class="nav-scroll">section 2</a>
+        <a href="#3" class="nav-scroll">section 3</a>
+        <a href="#4" class="nav-scroll">section 4</a>
+    </nav>
+
+
+    <!-- Use id or other attribute -->
+
+    <section id="1" style="background-color: darkolivegreen;">&nbsp;</section>
+
+    <section id="2" style="background-color: burlywood;">&nbsp;</section>
+
+    <section data-name="3" style="background-color: aquamarine;">&nbsp;</section>
+
+    <section data-name="4" style="background-color: bisque;">&nbsp;</section>
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        (function() {
+            $('.nav-scroll').on('click', function () {
+
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                    var target = $(this.hash);
+                        target = target.length ? target : $('[data-name=' + this.hash.slice(1) + ']');
+
+                    if (target.length) {
+                        $('html, body').animate({ scrollTop: target.offset().top }, 1000);
+
+                        return false;
+                    }
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
