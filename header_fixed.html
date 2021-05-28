@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Header fixed</title>
+
+    <style>
+
+        body {
+            margin: 0 auto;
+            max-width: 1920px;
+            height: 2000px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            max-width: 1920px;
+            height: 95px;
+            background-color: bisque;
+            transition: height .6s;
+            z-index: 999;
+        }
+
+        header.scroll { height: 50px; }
+
+        section {
+            padding-top: 95px; /* height of header */
+            height: 600px;
+            background-color: aquamarine;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <header>&nbsp;</header>
+
+    <section>&nbsp;</section>
+
+
+
+    <!-- Scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        (function(){
+
+            var headerHeight = parseInt($('header').css('height'));
+
+            $(window).on('scroll', function() {
+                var scrollValue = $(window).scrollTop();
+
+                scrollValue > headerHeight
+                    ? $('header').addClass('scroll')
+                    : $('header').removeClass('scroll');
+            });
+        })();
+    </script>
+</body>
+</html>
