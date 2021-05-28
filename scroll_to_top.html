@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Scroll to top</title>
+
+    <style>
+
+        body { height: 200vh; }
+
+       #scroll-top {
+           position: fixed;
+           top: 70%;
+           right: 25px;
+           width: 80px;
+           height: 80px;
+           border-radius: 50%;
+           background-color: #dddddd;
+           z-index: 999;
+           cursor: pointer;
+       }
+    </style>
+</head>
+
+<body>
+
+    <div id="scroll-top">&nbsp;</div>
+
+
+
+    <!-- Scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        (function(){
+            $('#scroll-top').on('click', function() {
+
+                $('html, body').animate({ scrollTop: 0 }, 1000);
+            });
+        })();
+    </script>
+</body>
+</html>
