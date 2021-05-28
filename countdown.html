@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Counter (counter.js)</title>
+
+    <script>
+        var date = new Date(2021, 4, 28, 18, 10);
+        /*Year, Month - 1, Day, Hour, Minute*/
+        // Put in head html
+    </script>
+</head>
+
+<body style="font-family: Arial, sans-serif;">
+
+
+    <span>Days - <span class="days">00</span> | </span>
+    <span>Hours - <span class="hours">00</span> | </span>
+    <span>Minutes - <span class="minutes">00</span> | </span>
+    <span>Seconds - <span class="seconds">00</span></span>
+
+
+
+    <!-- Scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countdown/2.6.0/countdown.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        (function(){
+
+            var timerId = countdown(date,
+                function(ts) {
+                    $('.days').text(ts.days);
+                    $('.hours').text(ts.hours);
+                    $('.minutes').text(ts.minutes);
+                    $('.seconds').text(ts.seconds);
+                },
+
+                countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
+            // later on this timer may be stopped
+            // window.clearInterval(timerId);
+        }());
+    </script>
+</body>
+</html>
