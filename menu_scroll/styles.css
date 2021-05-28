@@ -1,0 +1,17 @@
+body {
+    margin: 0 auto;
+    max-width: 1920px;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: fixed;
+    padding: 20px;
+    width: 100%;
+    background-color: #fff;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
