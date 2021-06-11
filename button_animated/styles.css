@@ -1,0 +1,58 @@
+body { font-family: Arial, sans-serif; }
+
+button {
+    padding: 0;
+    cursor: pointer;
+    border: none;
+}
+
+button span {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.btn-target {
+    width: 320px;
+    height: 60px;
+    background-color: coral;
+}
+
+.btn-target span { font-size: 24px; }
+
+.animation {
+    position: relative;
+    overflow: hidden;
+}
+
+.animation:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 10%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: skewX(-45deg);
+    animation: move-light 1.4s;
+}
+
+.animation.pause { animation-play-state: paused; }
+
+.btn_control-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 320px;
+}
+
+.btn-control {
+    width: 49%;
+    height: 30px;
+    background-color: cadetblue;
+}
+
+@keyframes move-light {
+    from { left: -50%; }
+    to { left: 150%; }
+}
